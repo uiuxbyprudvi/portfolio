@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #000000;
+  --color-on-primary: #ffffff;
+  --color-secondary: #b6171e;
+  --color-background: #f9f9f9;
+  --color-surface: #ffffff;
+  --color-surface-container: #eeeeee;
+  --color-outline: #7e7576;
+
+  --font-display: "Inter", "sans-serif";
+  --font-body: "Inter", "sans-serif";
+
+  --radius-none: 0px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9f9f9;
+  color: #000000;
+}
+
+.border-heavy {
+  border-bottom: 4px solid #000000;
+}
+
+.border-light {
+  border-bottom: 1px solid #ededed;
+}
+
