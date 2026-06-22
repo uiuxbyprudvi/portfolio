@@ -168,3 +168,26 @@
         padding-bottom: clamp(40px, 5vw, 80px) !important;
     }
 }
+
+.liquid-hover {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L200,0 C200,15 215,25 200,40 C185,55 180,70 200,90 C220,110 210,120 200,140 C190,160 200,185 200,200 L0,200 Z' fill='%23b6171e'/%3E%3Cpath d='M400,0 L200,0 C200,15 215,25 200,40 C185,55 180,70 200,90 C220,110 210,120 200,140 C190,160 200,185 200,200 L400,200 Z' fill='%23ffffff'/%3E%3C/svg%3E");
+    background-size: 200% 160px;
+    background-repeat: repeat-y;
+    background-position-x: 100%;
+    background-position-y: 0px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    transition: background-position-x 2.2s cubic-bezier(0.3, 0.1, 0.2, 1);
+    animation: liquid-wave 2.5s linear infinite;
+}
+
+.liquid-hover:hover {
+    background-position-x: 0%;
+}
+
+@keyframes liquid-wave {
+    from { background-position-y: 0px; }
+    to { background-position-y: 160px; }
+}

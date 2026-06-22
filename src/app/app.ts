@@ -11,6 +11,7 @@ export class App implements AfterViewInit, OnDestroy {
   protected readonly gitUrl = 'https://github.com/this-is-thiru/investment-tracker-fe';
   protected readonly figmaUrl = 'https://words-spider-91556155.figma.site/';
   protected caseStudyExpanded = signal(false);
+  protected mobileMenuOpen = signal(false);
   private scrollListener?: () => void;
   private observer?: IntersectionObserver;
 
@@ -21,6 +22,14 @@ export class App implements AfterViewInit, OnDestroy {
 
   toggleCaseStudy() {
     this.caseStudyExpanded.set(!this.caseStudyExpanded());
+  }
+
+  toggleMobileMenu() {
+    this.mobileMenuOpen.set(!this.mobileMenuOpen());
+  }
+
+  closeMobileMenu() {
+    this.mobileMenuOpen.set(false);
   }
 
   ngAfterViewInit() {
