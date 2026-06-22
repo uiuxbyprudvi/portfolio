@@ -8,13 +8,20 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class App implements AfterViewInit, OnDestroy {
   protected readonly title = signal('portfolio');
+  protected readonly gitUrl = 'https://github.com/this-is-thiru/investment-tracker-fe';
+  protected readonly figmaUrl = 'https://words-spider-91556155.figma.site/';
+  protected caseStudyExpanded = signal(false);
   private scrollListener?: () => void;
   private observer?: IntersectionObserver;
 
   constructor(
     private el: ElementRef,
     @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
+  ) { }
+
+  toggleCaseStudy() {
+    this.caseStudyExpanded.set(!this.caseStudyExpanded());
+  }
 
   ngAfterViewInit() {
     if (!isPlatformBrowser(this.platformId)) return;
@@ -35,24 +42,7 @@ export class App implements AfterViewInit, OnDestroy {
     revealElements.forEach((el: Element) => this.observer?.observe(el));
 
     // 2. Case Study Toggle Logic
-    const toggleBtn = this.el.nativeElement.querySelector('#toggleCaseStudy');
-    const content = this.el.nativeElement.querySelector('#caseStudyContent');
-    const toggleText = this.el.nativeElement.querySelector('#toggleText');
-
-    if (toggleBtn && content && toggleText) {
-      toggleBtn.addEventListener('click', () => {
-        const isExpanded = content.classList.contains('expanded');
-        if (!isExpanded) {
-          content.classList.add('expanded');
-          content.style.maxHeight = content.scrollHeight + 'px';
-          toggleText.textContent = 'SHOW LESS';
-        } else {
-          content.classList.remove('expanded');
-          content.style.maxHeight = '0';
-          toggleText.textContent = 'VIEW CASE STUDY';
-        }
-      });
-    }
+    // Handled by Angular Signal `caseStudyExpanded` in the template now.
 
     // 3. Scroll Spy and Nav Interactions
     const navLinks = this.el.nativeElement.querySelectorAll('.nav-link');

@@ -81,9 +81,10 @@
     width: 0;
     height: 2px;
     background-color: #b6171e;
-    transition: width 0.3s ease;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.nav-link:hover::after,
 .nav-link.active-nav::after {
     width: 100%;
 }
@@ -116,8 +117,13 @@
 }
 
 .expandable-content.expanded {
-    max-height: 1000px;
+    max-height: 8000px;
     opacity: 1;
+}
+
+.expandable-content.expanded .reveal {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .material-symbols-outlined {
@@ -127,4 +133,11 @@
 
 .sharp-edge {
     border-radius: 0 !important;
+}
+
+/* Desktop-only: restore full-screen hero */
+@media (min-width: 1024px) {
+    main#hero {
+        min-height: calc(100vh - 56px) !important;
+    }
 }
