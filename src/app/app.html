@@ -41,7 +41,7 @@
     </div>
   </header>
   <!-- Hero Section -->
-  <main class="px-4 md:px-20 lg:px-40 flex flex-col lg:justify-between pt-24"
+  <main class="px-4 md:px-20 lg:px-40 flex flex-col lg:justify-between pt-16"
     style="min-height: auto; padding-bottom: clamp(24px, 3vw, 40px);" id="hero">
 
     <!-- Main hero: 2 columns — LEFT: all content | RIGHT: photo -->
@@ -70,7 +70,7 @@
         </p>
 
         <!-- CTAs -->
-        <div class="reveal flex flex-wrap gap-3 mb-4 active" style="transition-delay: 300ms;">
+      <div class="reveal stagger-reveal flex flex-wrap gap-3 mb-4 active" style="transition-delay: 300ms;">
           <a href="#work"
             class="inline-flex items-center gap-2 h-10 px-6 bg-black text-white text-[10px] font-bold uppercase tracking-[0.15em] hover:bg-secondary transition-colors duration-300">
             VIEW MY WORK
@@ -129,7 +129,7 @@
           <div class="absolute -bottom-3 -left-3 w-8 h-8 bg-black" style="z-index: 0;"></div>
           <!-- Photo with aspect ratio, bounded by max-height -->
           <div class="border-2 border-black overflow-hidden w-full"
-            style="aspect-ratio: 3/4; max-height: clamp(180px, 50vw, calc(100vh - 160px)); position: relative; z-index: 1;">
+            style="aspect-ratio: 3/4; max-height: clamp(180px, 45vw, calc(100vh - 180px)); position: relative; z-index: 1;">
             <img src="profile.jpg" alt="Prudvi Raj M — Angular Developer"
               class="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700">
             <!-- Bottom info overlay -->
@@ -187,9 +187,11 @@
       </p>
       <div class="flex flex-wrap gap-4 items-center">
         <button (click)="toggleCaseStudy()"
-          class="flex min-w-[180px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-none h-12 px-6 bg-black text-neutral-50 text-xs font-bold uppercase leading-normal tracking-[0.15em] hover:bg-secondary transition-colors"
+          class="flex min-w-[180px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-none h-12 px-6 bg-black text-neutral-50 text-xs font-bold uppercase leading-normal tracking-[0.15em] hover:bg-secondary transition-colors toggle-expand"
+          [class.expanded]="caseStudyExpanded()"
           id="toggleCaseStudy">
           <span class="truncate" id="toggleText">{{ caseStudyExpanded() ? 'SHOW LESS' : 'VIEW CASE STUDY' }}</span>
+          <span class="expand-icon material-symbols-outlined" aria-hidden="true">expand_more</span>
         </button>
         <a [href]="gitUrl" target="_blank" rel="noopener noreferrer"
           class="inline-flex min-w-[180px] h-12 px-6 border-2 border-black items-center justify-center gap-2 text-black text-xs font-bold uppercase tracking-[0.15em] hover:bg-black hover:text-white transition-colors duration-300">

@@ -1,23 +1,48 @@
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(24px) scale(0.992);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
 }
 
 .reveal.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
 .stagger-reveal>* {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(20px) scale(0.99);
 }
 
 .stagger-reveal.active>* {
     opacity: 1;
-    transform: translateY(0);
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(0) scale(1);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group.relative.overflow-hidden,
+.group.experience-row {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, filter 0.35s ease;
+    will-change: transform, box-shadow;
+}
+
+.group.relative.overflow-hidden:hover,
+.group.experience-row:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.08);
+}
+
+.toggle-expand {
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.toggle-expand .expand-icon {
+    transition: transform 0.35s ease;
+}
+
+.toggle-expand.expanded .expand-icon {
+    transform: rotate(-180deg);
 }
 
 /* Stagger delays for up to 12 items */
@@ -138,6 +163,8 @@
 /* Desktop-only: restore full-screen hero */
 @media (min-width: 1024px) {
     main#hero {
-        min-height: calc(100vh - 56px) !important;
+        min-height: calc(100vh - 84px) !important;
+        padding-top: clamp(24px, 3vw, 48px) !important;
+        padding-bottom: clamp(40px, 5vw, 80px) !important;
     }
 }
