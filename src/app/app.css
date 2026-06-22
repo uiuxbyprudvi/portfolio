@@ -23,7 +23,7 @@
 
 .group.relative.overflow-hidden,
 .group.experience-row {
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, filter 0.35s ease;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, filter 0.4s ease;
     will-change: transform, box-shadow;
 }
 
@@ -34,11 +34,11 @@
 }
 
 .toggle-expand {
-    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+    transition: background-color 0.35s ease, color 0.35s ease, transform 0.35s ease;
 }
 
 .toggle-expand .expand-icon {
-    transition: transform 0.35s ease;
+    transition: transform 0.4s ease;
 }
 
 .toggle-expand.expanded .expand-icon {
@@ -106,7 +106,7 @@
     width: 0;
     height: 2px;
     background-color: #b6171e;
-    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link:hover::after,
@@ -115,7 +115,7 @@
 }
 
 .skill-tag {
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .skill-tag:hover {
@@ -179,8 +179,8 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    transition: background-position-x 2.2s cubic-bezier(0.3, 0.1, 0.2, 1);
-    animation: liquid-wave 2.5s linear infinite;
+    transition: background-position-x 3s cubic-bezier(0.3, 0.1, 0.2, 1);
+    animation: liquid-wave 5s linear infinite;
 }
 
 .liquid-hover:hover {
